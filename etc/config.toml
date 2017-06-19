@@ -1,0 +1,20 @@
+Database = "root:rui@tcp(127.0.0.1:3306)/bitman?charset=utf8"
+Port = ":5000"
+LogDes = """<seelog >
+    <outputs formatid=\"main\">
+        <filter levels=\"info\">    
+            <console />    
+        </filter>
+        <filter levels=\"info\">
+            <rollingfile formatid=\"info\" type=\"size\" filename=\"../log/httpserver_roll.log\" maxsize=\"800000000\" maxrolls=\"20\" />
+        </filter>
+        <filter levels=\"critical,error\">
+            <file formatid=\"critical\" path=\"../log/httpserver_critical.log\"/>
+        </filter>
+    </outputs>
+    <formats>
+        <format id=\"main\" format=\"%Date/%Time [%LEV] %Msg%n\"/>
+        <format id=\"info\" format=\"%Line %Date/%Time [%LEV] %Msg%n\"/>
+        <format id=\"critical\" format=\"%Line %Date/%Time [%LEV] %Func %Msg %n\"/>
+    </formats>
+	</seelog>""" 
